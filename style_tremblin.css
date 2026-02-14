@@ -1,0 +1,311 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: "Geo", sans-serif;
+    background: #000;
+    color: #eee;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Geo&display=swap');
+
+#landing {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#bg-pano {
+    position: absolute;
+    inset: 0;
+}
+
+@keyframes drift {}
+
+#exploreBtn {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 220px;
+    height: 70px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    z-index: 10;
+    font-family: "Geo", sans-serif;
+}
+
+#exploreBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#street-container,
+#streetview {
+    width: 100%;
+    height: 100%;
+}
+
+#map-picker {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #fff;
+    z-index: 10;
+}
+
+#tagUI {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+}
+
+#tagUI .controls {
+    width: 30%;
+    padding: 1rem;
+}
+
+#map {
+    width: 100%;
+    height: 100vh;
+}
+
+#miniMap {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #fff;
+    z-index: 10;
+}
+
+#tagOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+#tagOverlay.d-none {
+    display: none;
+}
+
+#tagOverlay .tagControls {
+    width: 30%;
+    padding: 1rem;
+}
+
+#streetview,
+#map,
+#bg-pano {
+    width: 100%;
+    height: 100vh;
+}
+
+#sprayBtn {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 999;
+    background: transparent !important;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sprayBtn .material-symbols-outlined {
+    font-size: 42px;
+    color: black;
+    transition: transform 0.25s ease;
+}
+
+#sprayBtn:hover .material-symbols-outlined {
+    transform: scale(1.15) rotate(12deg);
+}
+
+.tagControls {
+    width: 30%;
+    min-width: 260px;
+    padding: 1rem;
+    background: #111;
+    border-right: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.tagControls {
+    position: relative;
+    z-index: 2200;
+}
+
+.controls-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.controls-actions {
+    display: flex;
+    gap: 14px;
+    margin-top: 15px;
+}
+
+.controls-actions button {
+    flex: 1;
+    font-size: 1.1rem;
+    padding: 12px;
+}
+
+#colorPalette {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin: 10px 0 20px;
+}
+
+#colorPalette span {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 3px solid #111;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#colorPalette span:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.4);
+}
+
+.navbar {
+    background: transparent !important;
+}
+
+.navbar-toggler {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 6px;
+}
+
+#confirmTag {
+    background: #1db954;
+}
+
+#clearTag {
+    background: #c1121f;
+}
+
+.navbar .bg-dark {
+    background: transparent !important;
+}
+
+.offcanvas {
+    background: #000;
+}
+
+.navbar,
+.offcanvas-title,
+.offcanvas .nav-link,
+#exploreBtn {
+    font-family: "Geo", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 25px;
+}
+
+#tagOverlay .toolbar {
+    position: relative;
+    z-index: 9999;
+}
+
+#cancelTag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 3000;
+}
+
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 34px;
+    height: 34px;
+    border: none;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#drawCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2100;
+    pointer-events: auto;
+}
+
+#drawCanvas {
+    cursor: url("img/spray.png") 16 16, crosshair;
+}
+
+.fixed-box {
+    height: 500px;
+    max-height: 500px;
+}
+
+.info-text {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.carousel,
+.carousel-inner,
+.carousel-item {
+    height: 100%;
+}
+
+.carousel-item img {
+    height: 100%;
+    object-fit: cover;
+}
+
+#mapPreview {
+    width: 100%;
+    height: 100vh;
+    margin-top: 0;
+}
+
+/* ------------------------- */
+/* Modifiche per map.html */
+.map-page .navbar {
+    background-color: transparent !important;
+    z-index: 2000;
+}
+
+.map-page .navbar-toggler {
+    border: 1px solid white;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.map-page .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30"
+            xmlns='http://www.w3.org/2000/svg' %3E%3Cpath stroke='rgba%28255, 255, 255, 1%29'
+            stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22' /%3E%3C/svg%3E")
+
+    }

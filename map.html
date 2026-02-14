@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Map - Density</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Stile personalizzato -->
+    <link rel="stylesheet" href="style_tremblin.css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geo&display=swap" rel="stylesheet">
+</head>
+
+<body class="map-page">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+                aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Urban Tags</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="map.html">Map</a></li>
+                        <li class="nav-item"><a class="nav-link" href="archive.html">Archive</a></li>
+                        <li class="nav-item"><a class="nav-link" href="tagclouds.html">Tag Clouds</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mappa -->
+    <div id="mapPreview"></div>
+
+    <!-- Street View Container -->
+    <div id="streetViewContainer" class="d-none"></div>
+
+    <!-- Overlay per disegnare -->
+    <div id="tagOverlay" class="d-none">
+        <canvas id="drawCanvas"></canvas>
+        <div class="tagControls">
+            <div id="colorPalette">
+                <span data-color="#ff0000"></span>
+                <span data-color="#00ff00"></span>
+                <span data-color="#0000ff"></span>
+                <span data-color="#ffff00"></span>
+                <span data-color="#ff00ff"></span>
+            </div>
+            <input id="sizePicker" type="range" min="2" max="50" value="10">
+            <button id="confirmTag">Salva</button>
+            <button id="clearTag">Cancella</button>
+            <button id="cancelTag">Chiudi</button>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="app.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=API_KEY&libraries=visualization&callback=initMap" async
+        defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
